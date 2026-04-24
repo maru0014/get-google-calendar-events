@@ -36,8 +36,9 @@ function isAllDayEvent(event) {
 function calculateElapsedHours(start, end) {
   const startDate = dayjs.dayjs(start);
   const endDate = dayjs.dayjs(end);
-  const elapsedHours = endDate.diff(startDate, "second", true);
-  return elapsedHours / (60 * 60 * 24);
+  const elapsedSeconds = endDate.diff(startDate, "second", true);
+  // Sheets の時刻シリアル値（1.0 = 1日）で返す。セルを [h]:mm 形式にすると経過時間として表示される。
+  return elapsedSeconds / (60 * 60 * 24);
 }
 
 /**
