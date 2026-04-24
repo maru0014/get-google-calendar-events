@@ -119,7 +119,7 @@ function getEvents(calendarId, start, end, keyword) {
     timeZone, timeMin, timeMax,
     maxResults: 2500, // 最大2500 デフォルト250
     showDeleted: false, // 削除された予定も表示する
-    singleEvents: true, // 繰り返しの予定を対象外にする
+    singleEvents: true, // 繰り返しの予定を個別イベントとして展開する
     orderBy: "startTime"
   };
   if (keyword) query["q"] = keyword; // キーワードがあれば追加

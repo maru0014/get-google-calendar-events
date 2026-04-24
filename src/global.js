@@ -24,16 +24,10 @@ const settingsCategory = sheets.settingsCategory.getDataRange().getValues().slic
  * 必須項目チェック
  */ 
 function validateSettings() {
-  if (!settings.startDate) {
+  if (!(settings.startDate instanceof Date) || isNaN(settings.startDate.getTime())) {
     getCell(ss, "設定_取得開始日").activate();
-    Browser.msgBox("設定_取得開始日 を入力してください");
-    throw new Error("設定_取得開始日 を入力してください");
-  }
-  
-  if (!settings.endDate) {
-    getCell(ss, "設定_取得終了日").activate();
-    Browser.msgBox("設定_取得終了日 を入力してください");
-    throw new Error("設定_取得終了日 を入力してください");
+    Browser.msgBox("設定_取得開始日 に日付を入力してください");
+    throw new Error("設定_取得開始日 に日付を入力してください");
   }
 
   if (!(settings.endDate instanceof Date) || isNaN(settings.endDate.getTime())) {
