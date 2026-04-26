@@ -4,10 +4,10 @@
 function onOpen() {
   const ui = SpreadsheetApp.getUi()
   const menu = ui.createMenu("GAS");
-  menu.addItem("イベントデータクリア", "menu_clearSheetRows");
   menu.addItem("イベント取得", "menu_main");
   menu.addItem("イベント全件再取得", "menu_main2");
   menu.addItem("カテゴリー再判定", "menu_reCategorize");
+  menu.addItem("イベントデータクリア", "menu_clearSheetRows");
   menu.addToUi();
 }
 
